@@ -75,6 +75,56 @@
         text-shadow: 0 0 20px rgba(255, 0, 0, 0.9), 0 0 30px rgba(255, 0, 0, 0.8);
       }
     }
+
+    /* Collapsible Section */
+    .collapsible {
+      background-color: #333;
+      color: #fff;
+      cursor: pointer;
+      padding: 10px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .collapsible:hover {
+      background-color: #444;
+    }
+
+    .collapsible:after {
+      content: ' ▼';
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .active:after {
+      content: ' ▲';
+      transform: rotate(180deg);
+    }
+
+    .content-collapse {
+      padding: 15px;
+      background-color: #222;
+      color: #ccc;
+      display: none;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+
+    .divider {
+      height: 1px;
+      background-color: #444;
+      margin: 20px 0;
+    }
   </style>
 </head>
 <body>
@@ -85,6 +135,28 @@
     <img src="/YmzH4dtG-NIwT9NfQATXWibelS_uEQZXaX4i4tdbfRieBTFkAtjIDGzdpdnvANCoMehhXKOSD29PBnjp9VuzXx-1VnTV7FqUrXn9tgQG5BhHiVXVyyKhRij3tTqgwDksd90PxgS_f4cdffLWSqp289vZ_HgpdVGCPgCg7ZpkQjGu7hdzOQ=s2048.jpg" alt="Everyone Hates Chris">
     <p>Comedian Chris Rock narrates the hilarious, touching story of a teenager growing up as the eldest of three children in Brooklyn during the 1980s.</p>
   </div>
+
+  <div class="divider"></div>
+
+  <h1>Season 1</h1>
+
+  <!-- Collapsible Group -->
+  <script>
+    // Collapsible toggle
+    const collapsibles = document.querySelectorAll('.collapsible');
+
+    collapsibles.forEach(collapsible => {
+      collapsible.addEventListener('click', function() {
+        this.classList.toggle('active');
+        const content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
